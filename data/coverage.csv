@@ -1,0 +1,41 @@
+factor,tumor_type,evidence,india
+Extracellular pH,Breast,none,no
+Extracellular pH,Oral/HNSCC,none,no
+Extracellular pH,Gallbladder,none,no
+Extracellular pH,Cervical,none,no
+Extracellular pH,Pancreatic,inferred,no
+Hypoxia / HIF-1a,Breast,transcript,no
+Hypoxia / HIF-1a,Oral/HNSCC,direct,yes
+Hypoxia / HIF-1a,Gallbladder,inferred,yes
+Hypoxia / HIF-1a,Cervical,none,no
+Hypoxia / HIF-1a,Pancreatic,inferred,no
+Lactate,Breast,none,no
+Lactate,Oral/HNSCC,inferred,no
+Lactate,Gallbladder,none,no
+Lactate,Cervical,none,no
+Lactate,Pancreatic,none,no
+TGF-beta,Breast,transcript,no
+TGF-beta,Oral/HNSCC,none,no
+TGF-beta,Gallbladder,none,no
+TGF-beta,Cervical,none,no
+TGF-beta,Pancreatic,transcript,no
+Oestrogen / receptor,Breast,direct,yes
+Oestrogen / receptor,Oral/HNSCC,none,no
+Oestrogen / receptor,Gallbladder,none,no
+Oestrogen / receptor,Cervical,none,no
+Oestrogen / receptor,Pancreatic,none,no
+Interstitial fluid pressure,Breast,none,no
+Interstitial fluid pressure,Oral/HNSCC,none,no
+Interstitial fluid pressure,Gallbladder,none,no
+Interstitial fluid pressure,Cervical,none,no
+Interstitial fluid pressure,Pancreatic,inferred,no
+Collagen I,Breast,direct,no
+Collagen I,Oral/HNSCC,none,no
+Collagen I,Gallbladder,inferred,yes
+Collagen I,Cervical,none,no
+Collagen I,Pancreatic,direct,no
+Tissue stiffness,Breast,direct,no
+Tissue stiffness,Oral/HNSCC,none,no
+Tissue stiffness,Gallbladder,none,no
+Tissue stiffness,Cervical,none,no
+Tissue stiffness,Pancreatic,direct,no
