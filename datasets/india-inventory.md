@@ -68,6 +68,14 @@ Indian breast cancer presents at younger age than Western cohorts — relevant c
 
 ## Cervical cancer
 
+**Disease burden context.** Cervical cancer is the second most common cancer among
+Indian women: 127,526 new cases and 79,906 deaths estimated for 2022, ASIR 17.7 per
+100,000, with India carrying over 65% of the Southeast Asia regional burden
+(Singh, Grover & Dhanasekaran 2025, Global Epidemiology 10:100233, PMID 41399754).
+Against that burden, this atlas records **zero** characterised TME factors for
+cervical cancer — the largest single mismatch between incidence and coverage in
+the grid.
+
 | Study | Design | Cohort | Ref |
 |---|---|---|---|
 | Stage-wise expression profiling | Microarray, 19K arrays | Indian women, staged; **only samples ≥50% tumor cells included** — purity screening documented | PMC3892388 |

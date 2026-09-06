@@ -40,6 +40,8 @@ Tumor-specific epigenetic hits on ECM genes: integrin α4 (gastric), TIMP3 (oral
 
 ScienceDirect blocks automated retrieval and the PII did not resolve through search. **Action: ask Prof. Das for the title.**
 
+**Resolution attempts, 2026-09-02:** the PII was additionally queried against the Crossref API restricted to the iScience ISSN (2589-0042) for 2025 publications, returning zero results. Web search on the PII returned no matching article. The identifier does not resolve through any open route tried. This is now a verified negative rather than an unchecked gap — the title has to come from the person who supplied the link.
+
 ---
 
 ### 4. Byrne CE et al. (2021) `[primary]`
@@ -66,6 +68,8 @@ Findings: collagen content varied across breast subtypes, with COL I unexpectedl
 
 **Nat Commun 2022, collagen XII** `[primary]` — PMC9357007. Temporal matrisome proteomics of decellularised breast tumors; identifies four matrisomal clusters and shows CAF-secreted collagen XII regulates collagen I organisation to create a pro-invasive environment. Good example of the measurement standard to aim for.
 
+**Singh, Grover & Dhanasekaran (2025)** `[primary][india]` — *Cervical cancer burden in India: a descriptive epidemiological study and policy insights.* Global Epidemiology 10:100233. PMID 41399754, DOI 10.1016/j.gloepi.2025.100233. GLOBOCAN 2022 derived: 127,526 new cases and 79,906 deaths in India, ASIR 17.7 per 100,000, second most common cancer among Indian women, over 65% of the Southeast Asia regional burden. **Retrieved and read 2026-09-02.** Supplies the incidence half of the cervical-gap argument, which was previously asserted without a source.
+
 **Bharat Cancer Genome Atlas** `[review]` — Mahalingam, Scaria, Sivasubbu (2025), DOI 10.1177/15330338251381404. Position piece arguing that oral, head and neck, and gallbladder cancers are India-prevalent, rare elsewhere, molecularly distinct, and under-studied, while global targeted-therapy development rests on non-Indian genomic data. **Use for the project's justification section.**
 
 ### Indian sources
@@ -85,7 +89,7 @@ See `datasets/india-inventory.md` for the full table. Principal items:
 
 ## Reading queue
 
-- [ ] Izzi et al. 2019 — full read, abstract to methods
+- [ ] Izzi et al. 2019 — full read, abstract to methods. **Highest priority** — closest prior art; the project needs a stated differentiation from it
 - [ ] GBC proteomics supplementary tables — extract matrisome protein values
 - [ ] MatrisomeDB — download gene list
 - [ ] Naba matrisome methodology papers

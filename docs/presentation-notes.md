@@ -19,7 +19,7 @@ The five links resolve to four papers (one was duplicated).
 - Dzobo & Dandara 2023 — broad ECM review, conceptual
 - Kamal et al. 2026 — actually about ECM–epigenetics crosstalk; useful taxonomy
 - Byrne et al. 2021 — the only bench study, and the most relevant
-- One iScience paper — **could not identify it**, ScienceDirect blocks automated access and the PII does not resolve. *Ask for the title.*
+- One iScience paper — **could not identify it**, ScienceDirect blocks automated access and the PII does not resolve. Additionally queried against the Crossref API for the iScience ISSN in 2025: zero results. A verified negative, not an unchecked gap. *Ask for the title.*
 
 **Point to make:** these are excellent for concepts and for the component taxonomy, but the actual per-tumor-type numbers have to come from TCGA, CPTAC, MatrisomeDB, and primary measurement papers. Confirm that is the intended direction.
 
@@ -37,7 +37,9 @@ Searched systematically across tumor types and factor categories.
 | Indian ECM/matrisome data | **Near-absent.** Essentially one gallbladder proteomics study (ICMR-NIP Delhi) |
 | Indian pH, lactate, stiffness, IFP | **None found** |
 
-**Implication to state:** if the Indian component matters, the chemical factors are the tractable entry point, not ECM structure. That inverts the original project framing, so it needs his input.
+**Implication to state:** if the Indian component matters, the chemical factors are the tractable entry point, not ECM structure. That inverts the original project framing, so it needs their input.
+
+**Qualify this before being asked to.** The grid supports the claim by count but not by rate: Indian evidence is 4:1 chemical, but the grid holds three times as many chemical factors as structural ones, so per opportunity it is 13% chemical against 10% structural. And globally — setting India aside — the structural factors here are *better* covered, 33% coverage index against 10%. The honest statement is narrow: **the Indian ECM gap is the finding, not a general ECM gap.** Saying this yourself reads as command of the data. Being corrected on it does not. See `docs/analysis.md`.
 
 **Second point worth raising:** the Northeast India OSCC study explicitly notes that population is genetically closer to East Asian groups than other Indian regions. "Indian data" is not one category. Regional structure within India may matter.
 
@@ -58,7 +60,11 @@ Point out the three fields that do the work:
 
 Open `figures/coverage-heatmap.png`.
 
-Say: 8 factors × 5 tumor types = 40 cells. **62% empty. 10% have Indian data. The cervical column is entirely blank.**
+Say: 8 factors × 5 tumor types = 40 cells. **78% empty. 12% have Indian data. The cervical column is entirely blank.**
+
+**Lead with the audit, not the number.** The grid was 62% empty until every non-empty cell was checked against the source list of its own factor entry. Six cells were coded as having evidence with no source recorded, and were reset to `none`. That is why the figure reads 78% and not 62%. The method is the credibility: an audit trail exists in `docs/coverage-gap.md`, and any cell is restored the moment a source is read. A number that went *up* under scrutiny is worth more than one that was never scrutinised.
+
+**Second figure, if there is time:** `figures/coverage-by-axis.png` breaks the same data down by factor and by tumor type. Two things stand out — extracellular pH and TGF-β are at zero across every tumor type, and after the audit there is no transcript-level evidence anywhere in the grid, which is the tier that is cheapest to fill from public data.
 
 Then the pitch:
 
@@ -66,7 +72,8 @@ Then the pitch:
 
 Two concrete gaps the figure surfaces, both addressable by a biochemical engineering lab:
 1. **No Indian tumor stiffness measurement exists at all.** AFM or rheometry on Indian tumor tissue would be genuinely novel.
-2. **ICGA has ER+/PR+ Indian breast cancer with proteomics.** That cohort could directly test whether the Byrne collagen-versus-subtype finding replicates in Indian patients — where breast cancer presents at younger age, meaning a different hormonal microenvironment.
+2. **Cervical cancer is the second most common cancer among Indian women** — 127,526 new cases and 79,906 deaths in 2022, ASIR 17.7 per 100,000, India carrying over 65% of the Southeast Asia burden (PMID 41399754). Zero characterised factors in this atlas. Two Indian cervical datasets are already inventoried, so the transcript-level cells are fillable from existing data without new experiments. **Highest-return target in the grid.**
+3. **ICGA has ER+/PR+ Indian breast cancer with proteomics.** That cohort could directly test whether the Byrne collagen-versus-subtype finding replicates in Indian patients — where breast cancer presents at younger age, meaning a different hormonal microenvironment.
 
 ---
 
