@@ -18,31 +18,29 @@ Tissue is also viscoelastic, not purely elastic — it both resists and dissipat
 - **Viscosity:** kPa·s — separately measurable, usually ignored
 - **Shear wave speed:** m/s, from clinical elastography
 
-## Values — sourced
+## Value in normal tissue
 
-**Breast** (AFM):
-| Tissue | Elastic modulus |
-|---|---|
-| Normal | 1.4 ± 0.91 kPa |
-| Tumor (NST) | 3.3 ± 3.4 kPa |
-| Normal (independent study) | 1.13–1.83 kPa peak |
-| Malignant (independent study) | 1.54–9.62 kPa peak |
+All values are method-specific. Do not compare across rows from different methods — see `Measurement method` below.
 
-Breast tumor tissue showed dense fibrotic stroma with elastic modulus two to three times higher than normal breast.
-
-**Pancreas** (AFM, upper-quartile means — mechanosensitivity is dominated by the stiffer regions):
-| Tissue | Modulus |
-|---|---|
-| Healthy pancreas | ~1 kPa |
-| PanIN (precursor lesion) | ~2 kPa |
-| PDAC | ~4 kPa |
-
-**Pancreas** (rheometry, steady-state modulus):
-| Tissue | SSM | Viscosity |
+| Tissue | Value | Method |
 |---|---|---|
-| Normal | 1.06 ± 0.25 kPa | 252 ± 134 kPa·s |
-| Pancreatitis | 2.15 ± 0.41 kPa | 63.2 ± 26.7 kPa·s |
-| PDAC | 5.46 ± 3.18 kPa | 349 ± 222 kPa·s |
+| Normal breast | 1.4 ± 0.91 kPa | AFM |
+| Normal breast (independent study) | 1.13–1.83 kPa peak | AFM |
+| Healthy pancreas | ~1 kPa | AFM, upper-quartile mean |
+| Normal pancreas | 1.06 ± 0.25 kPa SSM, 252 ± 134 kPa·s viscosity | Rheometry |
+
+## Value in tumor tissue
+
+| Tissue | Value | Method |
+|---|---|---|
+| Breast tumor (NST) | 3.3 ± 3.4 kPa | AFM |
+| Breast, malignant (independent study) | 1.54–9.62 kPa peak | AFM |
+| PanIN (pancreatic precursor lesion) | ~2 kPa | AFM, upper-quartile mean |
+| PDAC | ~4 kPa | AFM, upper-quartile mean |
+| Pancreatitis | 2.15 ± 0.41 kPa SSM, 63.2 ± 26.7 kPa·s | Rheometry |
+| PDAC | 5.46 ± 3.18 kPa SSM, 349 ± 222 kPa·s | Rheometry |
+
+Breast tumor tissue showed dense fibrotic stroma with elastic modulus two to three times higher than normal breast. Pancreatic AFM values are reported as upper-quartile means, because mechanosensitivity is dominated by the stiffer regions rather than the tissue average.
 
 **Kidney and thyroid — the important counterexample:**
 Clear cell renal carcinoma and poorly differentiated thyroid carcinoma showed *decreased* elastic modulus relative to normal tissue. "Tumors are stiffer" is not universal. In thyroid, papillary carcinoma was significantly stiffer than normal while follicular adenocarcinoma was not — the direction of change is subtype-dependent.

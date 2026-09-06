@@ -20,8 +20,6 @@ Notable for context-dependent behaviour - tumor-suppressive in early disease, tu
 - Pathway activity via phospho-SMAD2/3 immunostaining
 - TGF-beta response gene signatures from RNA-seq
 
-**Critical measurement caveat:** TGF-beta is secreted in a latent, inactive complex bound to the ECM. Total TGF-beta and *active* TGF-beta are different quantities, and most assays measure total after artificial activation. Always record which.
-
 ## Value in normal tissue
 
 Present at low levels; latent stores held in the matrix.
@@ -31,6 +29,19 @@ Present at low levels; latent stores held in the matrix.
 Elevated in most solid tumors; activation from latent stores increases with matrix remodelling and mechanical strain.
 
 *Absolute values require sourcing.*
+
+## Measurement method
+
+| Method | Measures | Notes |
+|---|---|---|
+| ELISA | Protein concentration in lysate, plasma, or conditioned medium | The common quantitative assay; reports total after artificial activation unless stated |
+| Phospho-SMAD2/3 IHC | Pathway activity in situ | Reports downstream signalling, not ligand concentration; spatially resolved |
+| RNA-seq / `TGFB1` expression | Transcript abundance | Proxy only — poor predictor of secreted, matrix-bound protein |
+| TGF-beta response gene signature | Pathway activity from bulk transcriptomics | Used for stromal signature scoring; not a concentration |
+
+**Critical measurement caveat:** TGF-beta is secreted in a latent, inactive complex bound to the ECM. Total TGF-beta and *active* TGF-beta are different quantities, and most assays measure total after artificial activation. Always record which.
+
+*Per-method value ranges require sourcing before being recorded.*
 
 ## Mechanism
 

@@ -28,6 +28,19 @@ Physiological, varying with menstrual cycle, menopausal status, parity, and BMI.
 
 Receptor status is the clinical variable. Roughly 70-80% of breast cancers in Western cohorts are ER-positive; the Indian distribution differs (see below).
 
+## Measurement method
+
+| Method | Measures | Notes |
+|---|---|---|
+| Immunohistochemistry (ER / PR / HER2) | Percentage of positive tumor nuclei | The clinical standard. Semi-quantitative; scoring and cut-offs vary between laboratories, commonly >=1% for ER positivity |
+| Serum hormone assay | Circulating oestrogen, pg/mL or nmol/L | Systemic level, not the local tissue concentration |
+| Aromatase activity assay | Local oestrogen synthesis in adipose tissue | The relevant measure for postmenopausal disease, where oestrogen is largely peripheral in origin |
+| RNA-seq / `ESR1` expression | Transcript abundance | Proxy for receptor status; correlates imperfectly with IHC |
+
+**Measurement caveat:** receptor status and local hormone concentration are different quantities. Clinical cohorts record the former almost universally and the latter almost never, which is why hormone signalling is well annotated as a *clinical* variable and poorly characterised as a *microenvironment* variable.
+
+*Per-method value ranges require sourcing before being recorded.*
+
 ## Mechanism
 
 Oestrogen binds ER-alpha, which dimerises, binds oestrogen response elements, and drives transcription of proliferative genes including MYC and CCND1. Non-genomic membrane-initiated signalling also occurs via PI3K/AKT and MAPK.
