@@ -25,6 +25,13 @@ LABEL = {"none": "No data", "inferred": "Inferred",
 COLORS = {"none": "#f1edea", "inferred": "#fde5c8",
           "transcript": "#f4a582", "direct": "#b2182b"}
 
+# Display names for figures. The CSV keeps ASCII names as the join key.
+DISPLAY = {
+    "Hypoxia / HIF-1a": "Hypoxia / HIF-1α",
+    "TGF-beta": "TGF-β",
+}
+
+
 
 def load(root):
     cov = pd.read_csv(root / "data" / "coverage.csv")
@@ -83,7 +90,7 @@ def summarise(cov):
 
 def plot(cov, out_path, dpi):
     """Stacked bars: how each factor and each tumor type is covered."""
-    def stack(ax, col, title):
+    def stack(ax, col, title):  # noqa: C901
         keys = list(dict.fromkeys(cov[col]))
         counts = (cov.groupby([col, "evidence"]).size()
                      .unstack(fill_value=0).reindex(index=keys, columns=ORDER, fill_value=0))
@@ -96,11 +103,11 @@ def plot(cov, out_path, dpi):
                     label=LABEL[ev] if title.startswith("Factor") else None)
             left = [a + b for a, b in zip(left, vals)]
         ax.set_yticks(range(len(counts)))
-        ax.set_yticklabels(counts.index, fontsize=9.5)
+        ax.set_yticklabels([DISPLAY.get(i, i) for i in counts.index], fontsize=9.5)
         ax.invert_yaxis()
         ax.set_xlabel("cells", fontsize=9)
         ax.set_title(title, fontsize=11, loc="left", pad=10)
-        ax.set_xlim(0, max(left))
+        ax.set_xlim(0, max(left) * 1.04)
         ax.tick_params(length=0)
         for s in ax.spines.values():
             s.set_visible(False)
@@ -113,11 +120,12 @@ def plot(cov, out_path, dpi):
     stack(a1, "factor", "Factor — evidence available across 5 tumor types")
     stack(a2, "tumor_type", "Tumor type — evidence available across 8 factors")
 
+    # legend below both panels, so it cannot collide with either panel title
     handles, labels = a1.get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(.125, .945),
-               frameon=False, fontsize=9, ncol=4, columnspacing=1.4, handlelength=1.3)
+    fig.legend(handles, labels, loc="lower center", bbox_to_anchor=(.5, -.035),
+               frameon=False, fontsize=11.5, ncol=4, columnspacing=1.8, handlelength=1.5)
     fig.suptitle("Where the coverage actually sits",
-                 fontsize=13.5, x=.125, ha="left", y=.985)
+                 fontsize=13.5, x=.125, ha="left", y=.97)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, dpi=dpi, bbox_inches="tight",

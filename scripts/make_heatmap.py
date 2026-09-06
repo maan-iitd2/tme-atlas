@@ -40,6 +40,13 @@ EVIDENCE_LABELS = {
 # Sequential palette, light to dark.
 COLORS = ["#f5f5f5", "#fde5c8", "#f4a582", "#b2182b"]
 
+# Display names for figures. The CSV keeps ASCII names as the join key.
+DISPLAY = {
+    "Hypoxia / HIF-1a": "Hypoxia / HIF-1α",
+    "TGF-beta": "TGF-β",
+}
+
+
 
 def load(path):
     df = pd.read_csv(path)
@@ -106,7 +113,7 @@ def plot(scores, india, factors, tumors, out_path, dpi):
     ax.set_xticks(range(n_cols))
     ax.set_xticklabels(tumors, rotation=30, ha="right", fontsize=10)
     ax.set_yticks(range(n_rows))
-    ax.set_yticklabels(factors, fontsize=10)
+    ax.set_yticklabels([DISPLAY.get(f, f) for f in factors], fontsize=10)
 
     ax.set_title(
         "Tumor microenvironment factor coverage\n"
@@ -124,7 +131,7 @@ def plot(scores, india, factors, tumors, out_path, dpi):
     )
     ax.legend(
         handles=handles, bbox_to_anchor=(1.02, 1),
-        loc="upper left", frameon=False, fontsize=9,
+        loc="upper left", frameon=False, fontsize=11,
     )
 
     for spine in ax.spines.values():
