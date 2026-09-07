@@ -1,9 +1,9 @@
-factor_id,factor_name,category,subcategory,gene_symbol,units,normal_value,tumor_value,primary_method,confidence_phenomenon,confidence_values,india_data_status,entry_file
-ph_extracellular,Extracellular pH,chemical,metabolic,,pH units,7.4,6.5-7.0,CEST-MRI / microelectrode,high,medium,none_found,factors/chemical/ph-extracellular.md
-hypoxia_hif1a,Hypoxia / HIF-1alpha,chemical,gas_oxygen,HIF1A,mmHg pO2 / IHC score,40-60 mmHg,<10 mmHg,IHC / pimonidazole,high,low_medium,present,factors/chemical/hypoxia-hif1a.md
-lactate,Lactate,chemical,metabolite,LDHA;SLC16A3,mM,1-2,4-40 (unsourced),imBI / microdialysis,high,low,proxy_only,factors/chemical/lactate.md
-tgf_beta,TGF-beta,chemical,growth_factor,TGFB1,pg/mL or TPM,low,elevated,ELISA / pSMAD IHC,high,low,extractable,factors/chemical/tgf-beta.md
-estrogen,Oestrogen / hormone receptor,chemical,hormone,ESR1;PGR,IHC percent positive,physiological,receptor status,IHC,high,high,present_clinical,factors/chemical/hormones-estrogen.md
-ifp,Interstitial fluid pressure,chemical,physical_chemical,,mmHg,~0,10-40,wick-in-needle,high,low_medium,none_found,factors/chemical/interstitial-fluid-pressure.md
-collagen_1,Collagen type I,structural,collagen,COL1A1;COL1A2,area fraction / TPM,see_entry,see_entry,picrosirius / SHG / MS,high,low,adjacent_only,factors/structural/collagen-1.md
-stiffness,Tissue stiffness,structural,mechanical,,kPa,1.0-1.4,3.3-5.5,AFM / rheometry,medium_high,low_medium,none_found,factors/structural/stiffness.md
+factor_id,factor_name,category,subcategory,gene_symbol,units,normal_value,tumor_value,primary_method,confidence_phenomenon,confidence_values,india_data_status,model_param_status,entry_file
+ph_extracellular,Extracellular pH,chemical,metabolic,,pH units,7.4,6.5-7.0,CEST-MRI / microelectrode,high,medium,none_found,ready,factors/chemical/ph-extracellular.md
+hypoxia_hif1a,Hypoxia / HIF-1alpha,chemical,gas_oxygen,HIF1A,mmHg pO2 / IHC score,40-60 mmHg,<10 mmHg,IHC / pimonidazole,high,low_medium,present,ready,factors/chemical/hypoxia-hif1a.md
+lactate,Lactate,chemical,metabolite,LDHA;SLC16A3,mM,1-2,4-40 (unsourced),imBI / microdialysis,high,low,proxy_only,unsourced,factors/chemical/lactate.md
+tgf_beta,TGF-beta,chemical,growth_factor,TGFB1,pg/mL or TPM,low,elevated,ELISA / pSMAD IHC,high,low,extractable,qualitative,factors/chemical/tgf-beta.md
+estrogen,Oestrogen / hormone receptor,chemical,hormone,ESR1;PGR,IHC percent positive,physiological,receptor status,IHC,high,high,present_clinical,categorical,factors/chemical/hormones-estrogen.md
+ifp,Interstitial fluid pressure,chemical,physical_chemical,,mmHg,~0,10-40,wick-in-needle,high,low_medium,none_found,ready,factors/chemical/interstitial-fluid-pressure.md
+collagen_1,Collagen type I,structural,collagen,COL1A1;COL1A2,area fraction / TPM,see_entry,see_entry,picrosirius / SHG / MS,high,low,adjacent_only,unsourced,factors/structural/collagen-1.md
+stiffness,Tissue stiffness,structural,mechanical,,kPa,1.0-1.4,3.3-5.5,AFM / rheometry,medium_high,low_medium,none_found,ready,factors/structural/stiffness.md

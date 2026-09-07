@@ -88,6 +88,22 @@ def summarise(cov):
     return out
 
 
+def model_readiness(root):
+    """How much of the atlas can actually parameterise a model.
+
+    The downstream user is the lab's modelling work, so the question that
+    matters is not only 'is there evidence' but 'is there a number with units
+    that a model can take'. model_param_status in factors.csv records that
+    judgement explicitly rather than inferring it from the value strings.
+    """
+    fac = pd.read_csv(root / "data" / "factors.csv")
+    if "model_param_status" not in fac.columns:
+        raise ValueError("factors.csv is missing model_param_status")
+    counts = fac["model_param_status"].value_counts()
+    ready = fac[fac["model_param_status"] == "ready"]
+    return fac, counts, ready
+
+
 def plot(cov, out_path, dpi):
     """Stacked bars: how each factor and each tumor type is covered."""
     def stack(ax, col, title):  # noqa: C901
@@ -151,6 +167,15 @@ def main():
     print("By factor:");   print(s["by_factor"].round(1).to_string())
     print("\nBy tumor type:"); print(s["by_tumor"].round(1).to_string())
     print("\nBy category:");   print(s["by_category"].round(1).to_string())
+
+    fac, counts, ready = model_readiness(root)
+    n = len(fac)
+    print(f"\nModelling readiness: {len(ready)}/{n} factors parameter-ready")
+    print(counts.to_string())
+    print("\nParameter-ready factors (value confidence in brackets):")
+    for _, r in ready.iterrows():
+        print(f"  {r['factor_name']:32} {r['normal_value']} -> {r['tumor_value']} "
+              f"{r['units']}  [{r['confidence_values']}]")
 
     plot(cov, args.out, args.dpi)
 

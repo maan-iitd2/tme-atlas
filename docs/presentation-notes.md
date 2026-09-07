@@ -81,7 +81,7 @@ Two concrete gaps the figure surfaces, both addressable by a biochemical enginee
 
 **Blocking:**
 1. What is the title of the iScience paper?
-2. Who is the downstream user — your lab's modelling or experimental work, or a standalone resource?
+2. ~~Who is the downstream user?~~ **Answered: the lab's modelling work.** See the modelling section below.
 3. Which tumor types should I prioritise?
 
 **Scoping:**
@@ -94,6 +94,31 @@ Two concrete gaps the figure surfaces, both addressable by a biochemical enginee
 8. Is anyone else on this?
 
 ---
+
+## Modelling is the confirmed downstream user
+
+This reframes the project and should be said early, not saved for the end.
+
+**The line to use:**
+
+> "Since the target is modelling, the atlas is a parameter source. The question isn't only whether evidence exists for a cell, it's whether there's a number with units that a model can actually take."
+
+**The numbers:**
+- **4 of 8 factors are parameter-ready** — pH (6.5–7.0 vs 7.4), oxygen tension (<10 vs 40–60 mmHg), interstitial fluid pressure (10–40 vs ~0 mmHg), stiffness (3.3–5.5 vs 1.0–1.4 kPa).
+- **None exceeds medium confidence on its values.** This is the caveat the schema was built to surface, and it is the most useful thing the atlas can tell a modeller.
+- Lactate and collagen I have ranges with no read source. TGF-β is qualitative only. Receptor status is categorical and does not enter a continuous model.
+
+**The structural finding worth leading with:**
+
+> "Four of my entries independently say to couple to perfusion or vascular density — hypoxia, pH, lactate and interstitial pressure. Vascular density isn't in the atlas. Those four aren't independent parameters; they're one perfusion field with three readouts, sharing the same 100–200 µm diffusion length scale. So vascular density moves to the top of the expansion list."
+
+**What this does to the Izzi question:**
+
+> "For a modelling target, Izzi and I aren't competing. It's transcript-level across 820 matrisome genes — you can't set a scaffold to a normalised expression value. Its use to me is filling the transcript tier of the grid, which after the audit is the emptiest tier."
+
+**The gap that becomes blocking rather than interesting:**
+
+> "If we want an Indian-relevant tumor model, it can't currently be parameterised. There is no stiffness measurement of Indian tumor tissue anywhere. That's not a hole in a review, it's a hard stop — and it's addressable with AFM or rheometry."
 
 ## Scope proposal — offer this before being told
 
@@ -109,7 +134,7 @@ Proposing your own limits reads as judgement.
 2. Read Izzi 2019 properly
 3. Download MatrisomeDB gene list
 4. Request ICGA access
-5. Add factors: MMPs, LOX, fibronectin, glucose, CAF subtypes, vascular density
+5. Add factors, reordered by parameter value to a model: **vascular density first** (the coupling term four entries already need), then glucose depletion (settable in mM), fibronectin (settable as composite-matrix concentration), MMP2/9 and LOX (remodelling dynamics), CAF subtypes (co-culture design)
 6. Expand the grid to 15 × 8
 
 ---

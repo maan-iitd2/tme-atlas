@@ -62,13 +62,32 @@ Findings: collagen content varied across breast subtypes, with COL I unexpectedl
 
 ### Global resources
 
-**Izzi et al. (2019)** `[primary]` — pan-cancer matrisome expression across 10,487 patients and 32 TCGA tumor types, with transcription factor and master regulator analysis. **Closest prior art to this project.** Must be read properly and cited; the atlas needs to state how it differs.
-
 **MatrisomeDB / Naba lab** `[dataset]` — the canonical matrisome gene list (~1,000 genes), split into core matrisome (collagens, glycoproteins, proteoglycans) and matrisome-associated (regulators, affiliated proteins, secreted factors). The indexing spine for structural factors.
 
 **Nat Commun 2022, collagen XII** `[primary]` — PMC9357007. Temporal matrisome proteomics of decellularised breast tumors; identifies four matrisomal clusters and shows CAF-secreted collagen XII regulates collagen I organisation to create a pro-invasive environment. Good example of the measurement standard to aim for.
 
 **Singh, Grover & Dhanasekaran (2025)** `[primary][india]` — *Cervical cancer burden in India: a descriptive epidemiological study and policy insights.* Global Epidemiology 10:100233. PMID 41399754, DOI 10.1016/j.gloepi.2025.100233. GLOBOCAN 2022 derived: 127,526 new cases and 79,906 deaths in India, ASIR 17.7 per 100,000, second most common cancer among Indian women, over 65% of the Southeast Asia regional burden. **Retrieved and read 2026-09-02.** Supplies the incidence half of the cervical-gap argument, which was previously asserted without a source.
+
+**Izzi V, Lakkala J, Devarajan R, Kaariainen A, Koivunen J, Heljasvaara R, Pihlajaniemi T (2019)** `[primary]` — *Pan-Cancer analysis of the expression and regulation of matrisome genes across 32 tumor types.* Matrix Biology Plus 1:100004. DOI 10.1016/j.mbplus.2019.04.001, PMID 33543003, PMC7852311. Open access. **Read 2026-09-02.**
+
+**Closest prior art to this project.** Read in full; figures not yet examined in detail.
+
+*Data and method:* TCGA Pan-Cancer RNA-seq (Toil pipeline, RSEM-normalised), 10,487 patients across 32 tumor types, 99.27% primary tumors. 820 matrisome genes, 79.76% of the Matrisome Project's 1,028. Healthy comparison from TCGA and GTEx. Pipeline: three classifiers (SVM, neural network, C5.0) for clustering; TF module inference by consensus across TRRUST, ENCODE, Marbach and MSigDB with FANTOM5 promoter validation, then adaptive lasso, sparse Bayesian network and mixed graphical model; master regulators by driver-gene filtering on mutation frequency and BioGrid protein-protein interaction; KEGG enrichment; Kaplan-Meier survival; DGIdb for drug interactions.
+
+*Findings:* matrisome expression classifies tumor type at 95% average recall. 29 tumor-specific matrisome signatures. 919 TF-target modules across 28 tumor types, 85.2% of them tumor-specific. Hub TFs are rare - about 89% of TFs have only one or two matrisome targets. 233 modules associate with differential survival, most prevalent in low-grade glioma and pancreatic (>50%). 40 master regulators, averaging ~14 per tumor with ~3 cancer-specific; TP53 and P300 act as network hubs. 31 overarching regulatory pathways, with cell adhesion and transcriptional pathways (FoxO, Wnt, microRNAs) active in 100% of tumor types. Druggability screening suggests off-label repurposing, e.g. axitinib and dactinomycin against CSF1 in glioma and kidney tumors.
+
+*Authors' stated limitations:* drug predictions need experimental validation; metastatic and recurrent tumors are barely represented; protein-level cross-validation was possible for only 22 of 32 tumor types; pathway activation by mutation was infrequent; tissue-of-origin effects confound the similarity analysis.
+
+*Contains data?* Yes, at transcript level only. No demographic or ethnicity breakdown is reported. Code and derived data are "available upon request" - there is no public repository or browsable resource.
+
+**How this atlas differs, stated for the record:**
+1. *Level.* Izzi is transcript-level. This atlas records measured physical and chemical quantities with units and methods. A model cannot be parameterised from a normalised expression value.
+2. *Scope.* 820 matrisome genes is ECM only - a subset of one of this atlas's two categories. It covers none of pH, oxygen tension, lactate, interstitial fluid pressure or stiffness.
+3. *Absence.* A TCGA expression matrix has a value in every cell and therefore cannot represent "nobody has measured this". Representing that is this atlas's contribution.
+4. *Population.* No ethnicity reporting; TCGA is overwhelmingly non-Indian. The Indian coverage question is untouched.
+5. *Availability.* Code on request rather than a public resource.
+
+**Use for:** populating the transcript tier of `data/coverage.csv`, once its supplementary data is checked for a usable per-tumor-type breakdown. Also cite as prior art in any framing of this project's contribution. See `docs/analysis.md` for the modelling-specific assessment.
 
 **Bharat Cancer Genome Atlas** `[review]` — Mahalingam, Scaria, Sivasubbu (2025), DOI 10.1177/15330338251381404. Position piece arguing that oral, head and neck, and gallbladder cancers are India-prevalent, rare elsewhere, molecularly distinct, and under-studied, while global targeted-therapy development rests on non-Indian genomic data. **Use for the project's justification section.**
 
@@ -89,7 +108,8 @@ See `datasets/india-inventory.md` for the full table. Principal items:
 
 ## Reading queue
 
-- [ ] Izzi et al. 2019 — full read, abstract to methods. **Highest priority** — closest prior art; the project needs a stated differentiation from it
+- [x] Izzi et al. 2019 — read 2026-09-02. Differentiation stated in the entry above and in `docs/analysis.md`
+- [ ] Izzi et al. 2019 supplementary data — check for a per-tumor-type breakdown usable for the transcript tier
 - [ ] GBC proteomics supplementary tables — extract matrisome protein values
 - [ ] MatrisomeDB — download gene list
 - [ ] Naba matrisome methodology papers

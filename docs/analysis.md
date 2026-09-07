@@ -117,6 +117,100 @@ Indian ECM gap is the finding, not a general ECM gap.
 
 ---
 
+## Modelling readiness
+
+**The downstream user is confirmed: the lab's modelling work.** That changes the
+question the atlas has to answer. "Is there evidence for this cell" is necessary
+but not sufficient — a model needs *a number, with units, that can be set*. A
+transcript-level result cannot parameterise a hydrogel.
+
+`data/factors.csv` records that judgement explicitly in `model_param_status`,
+rather than inferring it from the value strings. Recomputed by
+`scripts/analyse_coverage.py`.
+
+| Status | Count | Meaning |
+|---|---|---|
+| `ready` | 4 | Numeric range with units, normal and tumor, from a read source |
+| `unsourced` | 2 | A range exists but no source has been read for it |
+| `qualitative` | 1 | Described only as low/elevated — no numbers |
+| `categorical` | 1 | Not a continuous settable quantity |
+
+### The four that can parameterise a model today
+
+| Factor | Normal → tumor | Units | Confidence in the values |
+|---|---|---|---|
+| Extracellular pH | 7.4 → 6.5–7.0 | pH units | Medium |
+| Hypoxia | 40–60 → <10 | mmHg pO₂ | Low–medium |
+| Interstitial fluid pressure | ~0 → 10–40 | mmHg | Low–medium |
+| Tissue stiffness | 1.0–1.4 → 3.3–5.5 | kPa | Low–medium |
+
+**Note what the confidence column says: not one parameter-ready factor exceeds
+medium confidence on its values.** That is the single most important caveat this
+atlas can give a modeller, and it is exactly what the schema's split of
+confidence into phenomenon versus values was built to surface. The phenomena are
+beyond dispute; the numbers are method-dependent and variable.
+
+The remaining four are not usable as parameters yet. Lactate and collagen I have
+ranges but no read source behind them; TGF-β is recorded only qualitatively;
+hormone receptor status is categorical and does not enter a continuous model as a
+value at all.
+
+### The coupling gap — vascular density is missing
+
+Four entries independently specify the same coupling term in their `Modelling
+notes`, and it is not a factor in this atlas:
+
+| Entry | What its modelling note says to couple to |
+|---|---|
+| Hypoxia / HIF-1α | "Couple to vascular density rather than imposing directly" |
+| Extracellular pH | "Coupled to a perfusion or diffusion term rather than set as a bulk constant" |
+| Lactate | "Couple to glycolytic rate and perfusion rather than imposing a bulk value" |
+| Interstitial fluid pressure | "Couple to vascular permeability and lymphatic clearance terms" |
+
+**Vascular density has no entry in the atlas** (`grep` returns zero rows in
+`data/factors.csv`), yet it is the shared variable four factors need in order to
+be modelled spatially rather than as bulk constants. Hypoxia, pH and lactate all
+share the same physical length scale — the 100–200 µm oxygen diffusion limit from
+a vessel — so they are not four independent parameters but one perfusion field
+with three readouts.
+
+This is a structural gap that only becomes visible once modelling is the target.
+It reorders the expansion list.
+
+### Revised factor priority, for a modelling target
+
+Previously ordered by evidence gained. Reordered by parameter value to a model:
+
+1. **Vascular density** — the coupling term four existing entries already require.
+   Without it, hypoxia, pH, lactate and IFP can only be set as bulk constants,
+   which every one of those entries explicitly warns against. Highest priority by
+   a clear margin.
+2. **Glucose depletion** — directly settable in culture medium, in mM. Parameter-
+   ready by construction, and completes the metabolic triad with lactate and pH.
+3. **Fibronectin** — settable as a coating or composite-matrix concentration.
+   Byrne's central result is that single-protein matrices are inadequate, so
+   composite composition is the parameter that matters.
+4. **MMP2 / MMP9 and LOX** — these are rates, not states. They parameterise the
+   *dynamics* of matrix remodelling and stiffening rather than a starting
+   condition. Needed for a time-evolving model, not a static scaffold.
+5. **CAF subtypes** — a co-culture design variable rather than a scalar parameter.
+
+### What Izzi 2019 does and does not give a modeller
+
+Izzi et al. (2019) is transcript-level: 820 matrisome genes, RNA-seq, across
+10,487 TCGA patients. For a modelling downstream user this is close to
+orthogonal to what is needed — a scaffold cannot be set to a normalised
+expression value, and the authors could cross-validate at protein level for only
+22 of 32 tumor types.
+
+Its genuine use here is narrower and worth stating precisely: it is a legitimate
+source for the **transcript tier** of the coverage grid, which is currently the
+emptiest tier, and its regulatory-module and master-regulator results describe
+*what drives* matrisome composition rather than *what that composition is*. It
+answers a different question at a different level. See `literature/papers.md`.
+
+---
+
 ## Concentration of the Indian evidence base
 
 The five Indian cells trace to a small number of groups:

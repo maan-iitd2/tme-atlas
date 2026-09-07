@@ -6,6 +6,8 @@ A structured reference of tumor microenvironment (TME) factors across cancer typ
 
 **Context:** Project for Prof. Amit Das, Biotechnology / Biochemical Engineering, IIT Delhi.
 
+**Downstream user: the lab's modelling work.** Confirmed September 2026. The atlas is therefore a *parameter source* first and a reference second — every factor is assessed for whether it yields a number, with units, that a model can take. That assessment is recorded in `model_param_status` in `data/factors.csv`. Currently **4 of 8 factors are parameter-ready**, none above medium confidence on its values. See `docs/analysis.md`.
+
 ---
 
 ## What this is
@@ -16,7 +18,7 @@ These factors are documented across thousands of papers in inconsistent units, f
 
 ## What this is not
 
-- Not a modelling or simulation codebase.
+- Not a modelling or simulation codebase. It supplies parameters to one; it does not run one.
 - Not a source of new experimental data.
 - Not a comprehensive review of TME biology. Entries are scoped to what is *measurable and comparable*.
 
@@ -72,7 +74,7 @@ See `SETUP.md` for install, figure regeneration, and git setup.
 
 Deliberately limited. Target for the first phase:
 
-- **15 factors**, written to full schema depth
+- **15 factors**, written to full schema depth, prioritised by parameter value to a model
 - **8 tumor types**, prioritising those with high Indian incidence (oral/head and neck, gallbladder, cervical, breast)
 - Every entry carries an explicit confidence flag and an Indian-data field, including when that field reads "none found"
 
@@ -103,13 +105,15 @@ A coverage heatmap: tumor types × TME factors, each cell coded by evidence type
 
 ## Current entries
 
-| Factor | Category | Indian data |
-|---|---|---|
-| Extracellular pH | Chemical | None found |
-| Hypoxia / HIF-1α | Chemical | **Present** — OSCC IHC, GBC proteomics |
-| Lactate | Chemical | Proxy only — GLUT1/HIF-1α in Indian OSCC |
-| TGF-β | Chemical | Extractable from existing datasets |
-| Oestrogen / hormone receptor | Chemical | **Present** — ICGA, clinical annotation |
-| Interstitial fluid pressure | Chemical | None found |
-| Collagen I | Structural | Adjacent only — GBC proteomics |
-| Tissue stiffness | Structural | None found |
+| Factor | Category | Model parameter | Indian data |
+|---|---|---|---|
+| Extracellular pH | Chemical | **Ready** — 7.4 → 6.5–7.0 | None found |
+| Hypoxia / HIF-1α | Chemical | **Ready** — 40–60 → <10 mmHg | **Present** — OSCC IHC, GBC proteomics |
+| Lactate | Chemical | Range unsourced | Proxy only — GLUT1/HIF-1α in Indian OSCC |
+| TGF-β | Chemical | Qualitative only | Extractable from existing datasets |
+| Oestrogen / hormone receptor | Chemical | Categorical | **Present** — ICGA, clinical annotation |
+| Interstitial fluid pressure | Chemical | **Ready** — ~0 → 10–40 mmHg | None found |
+| Collagen I | Structural | Range unsourced | Adjacent only — GBC proteomics |
+| Tissue stiffness | Structural | **Ready** — 1.0–1.4 → 3.3–5.5 kPa | None found |
+
+Value confidence for all four parameter-ready factors is medium or lower. **Vascular density is missing from the atlas** but is named as the required coupling term by four of these entries — it is the top expansion priority. See `docs/analysis.md`.
